@@ -1,4 +1,4 @@
-package in.tech_camp.controller;
+package in.tech_camp.chat_app.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
