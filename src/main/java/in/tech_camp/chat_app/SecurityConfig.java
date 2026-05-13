@@ -25,7 +25,7 @@ public class SecurityConfig {
         //上記以外のリクエストは認証されたユーザーのみ許可される(要ログイン)
         .anyRequest().authenticated())
 
-      .formLogin(login -> login
+       .formLogin(login -> login
         //ログインフォームのボタンをクリックした時に送信するパス
         .loginProcessingUrl("/login")
         //ログインページのパスを設定
