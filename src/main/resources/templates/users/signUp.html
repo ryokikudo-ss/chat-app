@@ -17,7 +17,7 @@
         <h5>新規アカウントの作成</h5>
       </div>
       <div class='account-page__inner--right user-form'>
-        <form th:action="@{/user}" th:method="post" th:object="${userForm}">
+        <form th:action="@{/user}" th:method="post" th:object="${userForm}"> <!-- ボタンを押すと/userにリクエストする 別にuserのファイルにアクセスわけではない -->
           <div th:if="${errorMessages}" th:each="error : ${errorMessages}">
             <div th:text="${error}"></div>
           </div>
