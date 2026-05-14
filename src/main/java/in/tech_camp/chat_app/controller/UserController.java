@@ -60,11 +60,6 @@ public class UserController {
     }
     return "users/login";
   }
-
-  @GetMapping("/")
-  public String index() {
-    return "messages/index";
-  }
   
   @GetMapping("/users/{userId}/edit")
   public String editUserForm(@PathVariable("userId") Integer userId, Model model) {
