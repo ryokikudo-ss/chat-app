@@ -3,7 +3,6 @@ package in.tech_camp.chat_app.controller;
 import java.util.List; 
 import java.util.stream.Collectors;
 
-import org.hibernate.validator.internal.engine.groups.ValidationOrder;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +20,7 @@ import in.tech_camp.chat_app.form.UserEditForm;
 import in.tech_camp.chat_app.form.UserForm;
 import in.tech_camp.chat_app.repository.UserRepository;
 import in.tech_camp.chat_app.service.UserService;
+import in.tech_camp.chat_app.validation.ValidationOrder;
 import lombok.AllArgsConstructor;
 
 
@@ -39,7 +39,7 @@ public class UserController {
   }
 
   @PostMapping("/user")
-  public String createUser(@ModelAttribute("userForm") @Validated UserForm userForm, BindingResult result, Model model) { //この意味何？
+  public String createUser(@ModelAttribute("userForm") @Validated(ValidationOrder.class) UserForm userForm, BindingResult result, Model model) { //この意味何？
     userForm.validatePasswordConfirmation(result);
     if(userRepository.existsByEmail(userForm.getEmail())) {
       result.rejectValue("email", "null", "このメールアドレスは既に使用されています。");
