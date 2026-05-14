@@ -11,10 +11,10 @@
 <body>
   <div class="wrapper">
     <div class="side-bar">
-      <div th:replace="side_bar :: side_bar"></div>
+      <div th:replace="~{side_bar :: side_bar}"></div>
     </div>
     <div class="chat">
-      <div th:replace="main_chat :: main_chat"></div>
+      <div th:replace="~{main_chat :: main_chat}"></div>
     </div>
   </div>
 </body>
