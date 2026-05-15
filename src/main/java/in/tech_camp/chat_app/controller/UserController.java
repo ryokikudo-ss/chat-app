@@ -85,7 +85,7 @@ public class UserController {
   }
   
   @GetMapping("/users/{userId}/edit")
-  public String editUserForm(@PathVariable("userId") Integer userId, Model model) {
+  public String editUserForm(@PathVariable("userId") Long userId, Model model) {
     UserEntity user = userRepository.findById(userId);
     
     UserEditForm userEditForm = new UserEditForm();
@@ -99,7 +99,7 @@ public class UserController {
   }
   
   @PostMapping("/users/{userId}")
-  public String updateUser(@PathVariable("userId") Integer userId, @ModelAttribute("user") @Validated (ValidationOrder.class) UserEditForm userEditForm, BindingResult result, Model model) {
+  public String updateUser(@PathVariable("userId") Long userId, @ModelAttribute("user") @Validated (ValidationOrder.class) UserEditForm userEditForm, BindingResult result, Model model) {
     String newEmail = userEditForm.getEmail();
     if (userRepository.existsByEmailExcludingCurrent(newEmail, userId)){
       result.rejectValue("email", "error.user", "このメールアドレスは既に使用されています。");

@@ -1,5 +1,7 @@
 package in.tech_camp.chat_app.repository;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;
@@ -18,7 +20,7 @@ public interface UserRepository {
   UserEntity findByEmail(String email);
 
   @Select("SELECT * FROM users WHERE id = #{id}")
-  UserEntity findById(Integer id);
+  UserEntity findById(Long id);
 
   @Update("UPDATE users SET name = #{name}, email = #{email} WHERE id = #{id}")
   void update(UserEntity user);
@@ -27,5 +29,8 @@ public interface UserRepository {
   boolean existsByEmail(String email);
 
   @Select("SELECT COUNT(*) > 0 FROM users WHERE email = #{email} AND id != #{userId}")
-  boolean existsByEmailExcludingCurrent(String email, Integer userId);
+  boolean existsByEmailExcludingCurrent(String email, Long userId);
+
+  @Select("SELECT * FROM users WHERE id <> #{excludedId}")
+  List<UserEntity> findAllExcept(Long excludedId);
 }
