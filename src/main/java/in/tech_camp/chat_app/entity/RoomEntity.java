@@ -5,11 +5,8 @@ import java.util.List;
 import lombok.Data;
 
 @Data
-public class UserEntity {
+public class RoomEntity {
   private Long id;
   private String name;
-  private String email;
-  private String password;
-
   private List<RoomUserEntity> roomUsers; //イメージ的には配列
 }

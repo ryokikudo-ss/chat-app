@@ -8,7 +8,7 @@ import lombok.Data;
 
 @Data
 public class UserEditForm {
-  private Integer id;
+  private Long id;
 
   @NotBlank(message = "名前は必須です", groups = ValidationPriority1.class)
   private String name;
