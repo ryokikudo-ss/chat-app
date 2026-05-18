@@ -26,8 +26,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-
-
 @Controller
 @AllArgsConstructor
 public class MessageController {
@@ -52,6 +50,8 @@ public class MessageController {
     model.addAttribute("messageForm", new MessageForm());
     model.addAttribute("roomId", roomId);
 
+    List<MessageEntity> messages = messageRepository.findByRoomId(roomId);
+    model.addAttribute("messages", messages);
     return "messages/index";
   }
 
