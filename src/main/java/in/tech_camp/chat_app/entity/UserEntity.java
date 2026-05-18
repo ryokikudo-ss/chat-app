@@ -12,4 +12,5 @@ public class UserEntity {
   private String password;
 
   private List<RoomUserEntity> roomUsers; //イメージ的には配列
+  private List<MessageEntity> messages;
 }

@@ -9,4 +9,5 @@ public class RoomEntity {
   private Long id;
   private String name;
   private List<RoomUserEntity> roomUsers; //イメージ的には配列
+  private List<MessageEntity> messages;
 }
